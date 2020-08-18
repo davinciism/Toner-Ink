@@ -16,8 +16,8 @@ $mobile: 550px;
 $tab: 1000px;
 $small-desktop: 1300px;
 $very-small: 350px;
-//Mixins
 
+//Mixins
 @mixin mobile{
     @media (max-width: #{$mobile}){
         @content;
@@ -148,13 +148,11 @@ nav{
 
 .mobile-nav{
     display: none;
-
     width: 100%;
     height: $nav-height*2;
     background: $blue;
     padding-bottom: 0.5rem;
     box-sizing: content-box;
-
     ul{
         width: 100%;
         //height: $nav-height*1.5;
@@ -183,7 +181,6 @@ nav{
 
     @include mobile{
         display: none;
-        
     }
 }
 
@@ -213,10 +210,16 @@ main{
         @include mobile{
             padding: 0.5rem 0;
         }
+        @include tablet{
+            padding: 0.5rem 0;
+        }
     }
     .two {
         padding-top: 1rem;
         @include mobile{
+            padding-top: 0.5rem;
+        }
+        @include tablet(){
             padding-top: 0.5rem;
         }
     }
@@ -327,6 +330,7 @@ main{
         margin-left: 1.5rem ;
         display: flex;
         align-items: center;
+        text-decoration: none;
 
         img{
             height: 2rem;
@@ -685,12 +689,4 @@ button{
         outline : none;
     }
 }
-
-
-
-
-
-
-
-
 

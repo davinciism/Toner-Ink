@@ -208,11 +208,23 @@ main {
   }
 }
 
+@media (max-width: 1000px) {
+  .content .one, .content .two {
+    padding: 0.5rem 0;
+  }
+}
+
 .content .two {
   padding-top: 1rem;
 }
 
 @media (max-width: 550px) {
+  .content .two {
+    padding-top: 0.5rem;
+  }
+}
+
+@media (max-width: 1000px) {
   .content .two {
     padding-top: 0.5rem;
   }
@@ -353,6 +365,7 @@ main {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  text-decoration: none;
 }
 
 .form .whatsapp img {
