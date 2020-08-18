@@ -25,7 +25,7 @@
             </a>
         </div>
     </nav>
-    <div class="mobile-nav" id="mobile-nav">
+    <div class="mobile-nav" id="mobile-nav" style="display: none;">
         <div class="container">
             <ul>
                 <a href="#"><li>Contact</li></a>
@@ -152,6 +152,17 @@
 
         document.addEventListener('DOMContentLoaded', function(){
 
+            /* Mobile Nav */
+            menu = document.getElementById('menu');
+            mobileNav = document.getElementById('mobile-nav');
+
+            menu.addEventListener('click', () => {
+                if(mobileNav.style.display === "none")
+                    mobileNav.style.display = "block";
+                else
+                    mobileNav.style.display = "none"
+            })
+
             console.log("test")
 
             /* Form Pages Logic*/
@@ -224,16 +235,7 @@
 
 
 
-            /* Mobile Nav */
-            menu = document.getElementById('menu');
-            mobileNav = document.getElementById('mobile-nav');
-
-            menu.addEventListener('click', () => {
-                if(mobileNav.style.display === "none")
-                    mobileNav.style.display = "block";
-                else
-                    mobileNav.style.display = "none"
-            })
+            
         })
 
     </script>
