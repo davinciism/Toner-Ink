@@ -1,0 +1,696 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+//Variables
+$blue : #095C84;
+$light-blue: #00B0FF;
+$img-blue: #0079EA;
+$yellow: #FFDE17;
+$white: #fff;
+$black: #161616;
+
+$nav-height: 3rem;
+$main-body-height: 50rem;
+$checkbox-size: 22px;
+
+$mobile: 550px;
+$tab: 1000px;
+$small-desktop: 1300px;
+$very-small: 350px;
+//Mixins
+
+@mixin mobile{
+    @media (max-width: #{$mobile}){
+        @content;
+    }
+}
+@mixin tablet{
+    @media (max-width: #{$tab}){
+        @content;
+    }
+}
+@mixin smallDesktop {
+    @media (max-width: #{$small-desktop}){
+        @content;
+    }
+}
+@mixin verySmall{
+    @media (max-width: #{$very-small}){
+        @content;
+    }
+}
+
+
+*{
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+
+
+html{
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+
+    @include mobile{
+        font-size: 14px;
+    }
+    @include tablet{
+        font-size: 15px;
+    }
+    @include smallDesktop{
+        font-size: 16px;
+    }
+    @include verySmall{
+        font-size: 13px;
+    }
+}
+
+//Helper Classes
+
+.container{
+    width: 80%;
+    margin: 0 auto;
+
+    @include mobile{
+        width: 95%;
+    }
+    @include tablet{
+        width: 90%;
+    }
+    @include smallDesktop{
+        width: 90%;
+    }
+
+}
+
+
+
+//Main content CSS
+
+nav{
+
+    height: $nav-height;
+    width: 100%;
+    background-color: $blue;
+
+    img{
+        height: $nav-height/2;
+        transform: translateY(50%);
+    }
+
+    ul{
+        
+        float: right;
+        list-style: none;
+        padding: 0;
+        display: flex;
+        height: $nav-height;
+
+        @include mobile{
+            display: none;
+        }
+
+        a{
+            padding: .5rem .8rem;;
+            //margin: 0 0.2rem;
+            display: flex;
+            align-items: center;
+            font-size: 1rem;
+            color: #fff;
+            text-decoration: none;
+    
+            
+            &:hover{
+                background-color: darken($blue, 10);
+                transition: 0.3s ease-in-out
+            } 
+        }
+        
+    }
+
+    .menu{
+        display: none;
+        height: $nav-height;
+        
+        padding: 0.5rem;
+        
+        @include mobile{
+            display: block;
+            float: right;
+        }
+        img{
+            height: 1rem;
+            
+        }
+    }
+}
+
+.mobile-nav{
+    display: none;
+
+    width: 100%;
+    height: $nav-height*2;
+    background: $blue;
+    padding-bottom: 0.5rem;
+    box-sizing: content-box;
+
+    ul{
+        width: 100%;
+        //height: $nav-height*1.5;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 0;
+        a{
+            display: block;
+            width: 50%;
+            height: $nav-height;
+            color: $white;
+            text-decoration: none;
+            list-style: none;
+            padding: 1rem;
+            text-align: center;
+
+            &:focus{
+                border: 2px $light-blue solid;
+            }
+        }
+
+        li{
+            width: 100%;
+        }
+    }
+
+    @include mobile{
+        display: none;
+        
+    }
+}
+
+main{
+    
+    height: $main-body-height;
+    width: 100%;
+    //background-color: aquamarine;
+    display: flex;
+
+    @include mobile{
+        flex-direction: column;
+    }
+    @include tablet{
+        flex-direction: column;
+    }
+
+}
+
+.content{
+    height: $main-body-height;
+    width: 60%;
+    //background-color: beige;
+
+    .one, .two {
+        padding: 2rem 0;
+        @include mobile{
+            padding: 0.5rem 0;
+        }
+    }
+    .two {
+        padding-top: 1rem;
+        @include mobile{
+            padding-top: 0.5rem;
+        }
+    }
+
+    h3{
+        font-size: 2rem;
+        font-weight: 600;
+        padding: 1rem 1rem;
+        background-color: $yellow;
+        @include mobile{
+            font-size: 1.6rem;
+            padding: 0.5rem 0;
+        }
+    }
+    p{
+        font-size: 1.2rem;
+        padding: 1rem 1rem;
+        @include mobile{
+            font-size: 1.1rem;
+            opacity: 0.85;
+        }
+    }
+
+    .img-container{
+        width: 100%;
+        background: $img-blue;
+        //margin-top: 3rem;
+
+
+        img{
+            display: block;
+            margin: 0 auto;
+            padding: 2rem;
+
+            @include tablet{
+                max-width: 400px;
+            }
+
+            @include smallDesktop{
+                max-width: 500px;
+            }
+        }
+
+        @include mobile{
+            display: none;
+        }
+    }
+
+    @include mobile{
+        width: 100%;
+        height: $main-body-height / 2.5 ;
+    }
+    @include tablet{
+        width: 100%;
+        //max-width: 350px;
+    }
+}
+
+
+.form-container{
+    height: $main-body-height;
+    width: 40%;
+    //background-color: wheat;
+
+    @include mobile{
+        width: 100%;
+        margin-top: -2rem;
+    }
+    @include tablet{
+        width: 100%;
+    }
+    
+}
+.form{
+    background: yellow;
+    height: $main-body-height/1.28;
+    //height: $main-body-height/1.37;
+    width: 80%;
+    min-width: 400px;
+    background-color: $white;
+    float: right;
+    margin-top: 3rem;
+    box-shadow: 0 10px 10px rgba($color: #000000, $alpha: 0.22);
+    display: flex;
+    //overflow-x: scroll;
+    position: relative;
+
+    @include smallDesktop{
+        min-width: 90%;
+    }
+
+    @include tablet{
+        width: 90%;
+        height: $main-body-height/1.4;
+        margin: 0 auto;
+        float: none;
+    }
+    
+    @include mobile{
+        width: 100%;
+        min-width: 100%;
+        margin-top: 1rem;
+    }
+   
+    .whatsapp{
+        position: absolute;
+        bottom: 1rem; 
+        margin-left: 1.5rem ;
+        display: flex;
+        align-items: center;
+
+        img{
+            height: 2rem;
+            margin-right: 0.3rem;
+
+            &:hover{
+                cursor: pointer;
+            }
+        }
+        
+        h4{
+            font-size: 1.125rem;
+            font-weight: 500;
+            transform: translateX(-50%);
+            opacity: 0;
+            color: #2EBC2B;
+
+            @include tablet{
+                transform: translateX(0%);
+                opacity: 1;
+            }
+            
+        }
+        &:hover>h4{
+            cursor: pointer;
+            transform: translateX(0%);
+            opacity: 1;
+            transition: 0.2s ease-in-out;
+        }
+        
+    }
+}
+.pages{
+    //background: orange;
+    height: 90%;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+.page{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    //background-color: #FFDE17;
+    transition: 0.2s;
+    //transition: 4s;
+    transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+
+    .header{
+        width: 90%;
+        margin: 0 auto;
+        background:$black;
+        padding: 1rem;
+        margin-top: 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        @include mobile{
+            width: 95%;
+            margin-top: 0.85rem;
+        }
+        img{
+            height: 1.2rem;;
+        }
+        h4{
+            color: $white;
+            font-weight: 400;
+        }
+    }
+
+    form{
+        width: 90%;
+        height: 90%;
+        background: $white;
+        margin: 0 auto;
+        padding: 2rem;
+
+        @include mobile{
+            width: 100%;
+            padding: 1.25rem;
+        }
+        label{
+            font-size: 1rem;
+            font-weight: 400;
+            color: $black;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+        input,textarea{
+            width: 100%;
+            padding: 1rem;
+            border: 1.25px $light-blue solid;
+            background-color: rgba($color:#8FCFFF, $alpha: 0.1);
+            margin-bottom: 2rem;
+            color: #00B0FF;
+            font-size: 0.8rem;
+        }
+        
+        input{
+            height: 3rem;
+        }
+        textarea{
+            margin-bottom: 1rem;
+            resize: none;
+        }
+        ::placeholder{
+            font-size: 0.85rem;
+            font-weight: 400;
+            color: #00B0FF;
+        }
+        .checkbox-container{
+            margin-bottom: 2rem;;
+        }
+
+        input:focus, textarea:focus{
+            outline: none;
+            //background: rgba($color:#8FCFFF, $alpha: 0.15);
+            border: 1.5px $light-blue solid !important;
+        }
+    }
+}
+
+.page-one{
+    background: $white;
+    left: 0;
+
+    p{
+        text-align: center;
+        margin-bottom: 1.2rem;
+        font-weight: 500;
+    }
+    button{
+        float: right;
+        margin-top: -1rem;
+        span{
+           margin-right: 0.25rem;
+        }
+    }
+
+    .info{
+        font-size: 1rem;
+        font-weight: 300;
+        text-align: left;
+    }
+
+}
+.page-two, #page-two{
+    //background: green;
+    left: 100%;
+    //left: 0%;
+
+    p{
+        font-weight: 500;
+        margin-bottom: 1rem;
+    }
+    .delivery{
+        margin-bottom: 2rem;
+    }
+    .recommend{
+        font-size: 0.85rem;
+        font-weight: 600;
+        margin-left: 1.75rem;
+        margin-bottom: 0.8rem;
+    }
+    .nav{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .back{
+            transform: rotate(180deg);
+            cursor: pointer;
+        }
+    }
+    
+}
+.page-three{
+    //background:rgb(177, 177, 255);
+    left: 200%;
+    //left: 0%;
+
+    .display{
+        background: $white;
+        width: 90%;
+        height: 90%;
+        margin: 0 auto;
+        padding: 2rem ;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        h3{
+            font-size: 1.6rem;
+            margin: -2rem 0;
+        }
+        p{
+            margin: 4rem 0;
+        }
+    }
+}
+
+
+
+/* Custom Checkbox*/
+.checkbox-container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: $checkbox-size;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    /* Hide the browser's default checkbox */
+    input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+    }
+
+    /* Create a custom checkbox */
+    .checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: $checkbox-size;
+        width: $checkbox-size;
+        background-color: $white;
+        border: 2px $light-blue solid;
+        box-sizing: content-box;
+    }
+
+    /* On mouse-over, add a grey background color */
+    &:hover input ~ .checkmark {
+        background-color: $white;
+    }
+    /* When the checkbox is checked, add a blue background */
+    input:checked ~ .checkmark {
+        background-color: $light-blue;
+    }
+
+    /* Create the checkmark/indicator (hidden when not checked) */
+    .checkmark:after {
+    content: "";
+        position: absolute;
+        display: none;
+    }
+    /* Show the checkmark when checked */
+    input:checked ~ .checkmark:after {
+        display: block;
+    }
+
+    /* Style the checkmark/indicator */
+    .checkmark:after {
+        left: 7px;
+        top: 4px;
+        width: 5px;
+        height: 10px;
+        border: solid $white;
+        border-width: 0 3px 3px 0;
+        -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+        transform: rotate(45deg);
+    }
+}
+
+/* Custom Radio Button */
+.radio-container {
+    display: block;
+    position: relative;
+    padding-left: 1.75rem;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: $checkbox-size;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    /* Hide the browser's default radio button */
+    input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+    }
+    
+    /* Create a custom radio button */
+    .checkmark {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: $checkbox-size;
+        width: $checkbox-size;
+        background-color: $white;
+        border: 2px $light-blue solid;
+        border-radius: 50%;
+    }
+
+    /* On mouse-over, add a grey background color */
+    &:hover input ~ .checkmark {
+        background-color: #8FCFFF;
+    }
+
+    /* When the radio button is checked, add a blue background */
+    input:checked ~ .checkmark {
+        background-color: $light-blue;
+    }
+    
+    /* Create the indicator (the dot/circle - hidden when not checked) */
+    .checkmark:after {
+        content: "";
+        position: absolute;
+        display: none;
+    }
+
+    /* Show the indicator (dot/circle) when checked */
+    input:checked ~ .checkmark:after {
+        display: block;
+    }
+
+      
+    /* Style the indicator (dot/circle) */
+    .checkmark:after {
+        top: 5px;
+        left: 5px;
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: white;
+    }
+
+}
+   
+
+button{
+    font-size: 1rem;
+    color: $black;
+    font-weight: 400;
+    padding: 0.65rem 2rem;
+    border: none;
+    background: $yellow;
+
+    &:hover{
+        background: lighten($color: $yellow, $amount: 16);
+        cursor: pointer;
+    }
+    &:focus{
+        outline : none;
+    }
+}
+
+
+
+
+
+
+
+
+

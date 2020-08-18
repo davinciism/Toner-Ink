@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toner and Ink</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav>
+        <div class="container">
+            <a href="./index.html">
+                <img src="./assets/logo.png" alt="Toner and Ink Logo" srcset="">
+            </a>
+
+            <ul>
+                <a href="#"><li>Contact</li></a>
+                <a href="#"><li>Brands</li></a>
+                <a href="#"><li>Shops</li></a>
+                <a href="#"><li>Reseller</li></a>
+            </ul>
+            <a class="menu" id="menu">
+                <img src="./assets/menu-icon.png" alt="">
+            </a>
+        </div>
+    </nav>
+    <div class="mobile-nav" id="mobile-nav">
+        <div class="container">
+            <ul>
+                <a href="#"><li>Contact</li></a>
+                <a href="#"><li>Brands</li></a>
+                <a href="#"><li>Shops</li></a>
+                <a href="#"><li>Reseller</li></a>
+            </ul>
+        </div>
+    </div>
+
+    <main class="container">
+
+        <div class="content">
+            <div class="one">
+                <h3>Get discount toner pricing</h3>
+                <p>Pricing on original toners for tenders, office & home users.
+                    Or get corporate quality generics today</p>
+            </div>
+            <div class="two">
+                <h3>Try our same day delivery!</h3>
+                <p>Delivery in 90mins for R90 to Jhb, Midrand & Cape Town</p>
+            </div>
+            <div class="img-container">
+                <img src="./assets/scooter4.png" alt="">
+            </div>
+        </div>
+
+        <div class="form-container">
+            <div class="form">
+                <div class="pages" id="pages">
+
+                    <div class="page page-one" id="page-one">
+                        <div class="header">
+                            <img src="./assets/logo.png" alt="logo">
+                            <h4>Request a Quote</h4>
+                        </div>
+    
+                        <form id="first-form">
+                            <label for="">Email Address</label>
+                            <input type="email" name="email" id="email" placeholder="Your email address" required>
+    
+                            <p>About your order</p>
+    
+                            <label for="">Model Number and Quantity</label>
+                            <textarea name="order" id="order" cols="30" rows="7" placeholder="Model Number and Number of Items"  required></textarea>
+
+                            <label class="checkbox-container">I'm buying in bulk.
+                                <input type="checkbox" id="bulk">
+                                <span class="checkmark"></span>
+                              </label>
+
+                            <button  id="first-button">
+                                <span>Next </span> <img src="./assets/arrow.png" alt="">
+                            </button>
+
+                            <p class="info">
+                                Just one more step
+                            </p>
+                        </form>
+    
+                    </div>
+
+                    <div class="page page-two" id="page-two">
+                        <div class="header">
+                            <img src="./assets/logo.png" alt="logo">
+                            <h4>You're almost there!</h4>
+                        </div>
+                        <form action="" id="second-form">
+                            <p>Shipping speed:</p>
+                            <div class="delivery">
+                                <label class="radio-container">Same Day Delivery
+                                    <input type="radio" checked="checked" name="radio" required id="same-day">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="recommend">(recommended for home/office use)</div>
+                                <label class="radio-container">Regular Delivery
+                                    <input type="radio" name="radio" required id="regular">
+                                    <span class="checkmark"></span>
+                                </label>
+                                <div class="recommend">(recommended for bulk buyers)</div>
+                            </div>
+                            
+                            <label for="">Whatsapp Number</label>
+                            <input type="tel" name="wa" id="wa" placeholder="Your whatsapp number" required>
+                            
+                            <label for="">Postal Code</label>
+                            <input type="" name="postal" id="postal" placeholder="Your postal code" required>
+
+                            <div class="nav">
+                                <div class="back" id="back"><img src="./assets/arrow.png" alt=""></div>
+                                <button id="second-button">Get Quote</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="page page-three" id="page-three">
+                        <div class="header">
+                            <img src="./assets/logo.png" alt="logo">
+                            <h4>You're almost there!</h4>
+                        </div>
+                        <div class="display">
+                            <h3>You successfully ordered your item!</h3>
+                            <p>Reverting Back in 3s</p>
+                        </div>
+                    </div>
+                    
+                </div>
+
+                <div class="whatsapp">
+                    <img src="./assets/wa.png" alt="whatsapp">
+                    <h4>Need help?</h4>
+                </div>
+                
+            </div>
+
+            
+            
+        </div>
+    </main>
+    
+
+
+    <script>
+
+        document.addEventListener('DOMContentLoaded', function(){
+
+            console.log("test")
+
+            /* Form Pages Logic*/
+
+            firstForm = document.getElementById('first-form')
+            firstButton = document.getElementById('first-button');
+            secondForm = document.getElementById('second-form');
+            secondButton = document.getElementById('second-button');
+            back = document.getElementById('back');
+
+            pages = document.getElementById('pages');
+            
+            page1 = document.getElementById('page-one');
+            page2 = document.getElementById('page-two');
+            page3 = document.getElementById('page-three');
+
+            //Seconds to revert back to the first page
+            time = 3000;
+
+            //Takes you to the second page
+            firstForm.addEventListener('submit', (e) => {
+                e.preventDefault()
+                page1.style.left = "-100%"
+                page2.style.left = "0%";
+            })
+
+            //Takes you to the third page
+            secondForm.addEventListener('submit', (e) => {
+                e.preventDefault()
+                page2.style.left = "-100%"
+                page1.style.left = "-200%" //To fix a glitch
+                page3.style.left = "0%";
+
+                setTimeout(() => {
+                    console.log("timeout fnc")
+                    page2.style.left = "200%";
+                    page3.style.left = "200%"
+                    page1.style.left = "0%";
+                }, time)
+
+            })
+            //Takes you to the first page
+            back.addEventListener('click', () => {
+                page2.style.left = "200%";
+                page1.style.left = "0%"
+            })
+
+
+
+            /* Delivery and Bulk Buying Logic */
+            bulk = document.getElementById('bulk');
+            sameDay = document.getElementById('same-day');
+            regular = document.getElementById('regular');
+
+            //Set to regular if bulk
+            function deliverySpeed(){
+                console.log("logic")
+                if (bulk.checked == true){
+                    regular.checked = true;
+                }
+            }
+
+            //Check if bulk
+            bulk.addEventListener('click', () => {
+                console.log("bulk")
+                if (bulk.checked == true){
+                deliverySpeed();
+            }
+            })
+
+
+
+            /* Mobile Nav */
+            menu = document.getElementById('menu');
+            mobileNav = document.getElementById('mobile-nav');
+
+            menu.addEventListener('click', () => {
+                if(mobileNav.style.display === "none")
+                    mobileNav.style.display = "block";
+                else
+                    mobileNav.style.display = "none"
+            })
+        })
+
+    </script>
+
+</body>
+</html>
